@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm create:*)",
+      "mcp__Framelink_Figma_MCP__get_figma_data",
+      "Bash(cat:*)",
+      "Bash(npm install:*)",
+      "Bash(cd:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "Framelink Figma MCP"
+  ]
+}
