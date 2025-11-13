@@ -9,72 +9,99 @@
  */
 
 export const colors = {
-  // Primary Colors
+  // Premium Dark Theme - Blue Spectrum
   primary: {
-    50: '#f0f9ff',
-    100: '#e0f2fe',
-    200: '#bae6fd',
-    300: '#7dd3fc',
-    400: '#38bdf8',
-    500: '#0ea5e9',
-    600: '#0284c7',
-    700: '#0369a1',
-    800: '#075985',
-    900: '#0c4a6e',
+    50: '#eff6ff',
+    100: '#dbeafe',
+    200: '#bfdbfe',
+    300: '#93c5fd',
+    400: '#60a5fa',
+    500: '#3b82f6',
+    600: '#2563eb',
+    700: '#1d4ed8',
+    800: '#1e40af',
+    900: '#1e3a8a',
   },
 
-  // Secondary Colors
-  secondary: {
-    50: '#faf5ff',
-    100: '#f3e8ff',
-    200: '#e9d5ff',
-    300: '#d8b4fe',
-    400: '#c084fc',
-    500: '#a855f7',
-    600: '#9333ea',
-    700: '#7e22ce',
-    800: '#6b21a8',
-    900: '#581c87',
+  // Emerald/Teal Accent
+  emerald: {
+    50: '#ecfdf5',
+    100: '#d1fae5',
+    200: '#a7f3d0',
+    300: '#6ee7b7',
+    400: '#34d399',
+    500: '#10b981',
+    600: '#059669',
+    700: '#047857',
+    800: '#065f46',
+    900: '#064e3b',
   },
 
-  // Neutral/Gray Colors
-  gray: {
-    50: '#f9fafb',
-    100: '#f3f4f6',
-    200: '#e5e7eb',
-    300: '#d1d5db',
-    400: '#9ca3af',
-    500: '#6b7280',
-    600: '#4b5563',
-    700: '#374151',
-    800: '#1f2937',
-    900: '#111827',
+  // Silver/Neutral for Dark Theme
+  silver: {
+    50: '#f8fafc',
+    100: '#f1f5f9',
+    200: '#e2e8f0',
+    300: '#cbd5e1',
+    400: '#94a3b8',
+    500: '#64748b',
+    600: '#475569',
+    700: '#334155',
+    800: '#1e293b',
+    900: '#0f172a',
   },
 
-  // Figma Portfolio Design Colors
-  mercury: '#E5E7EB',
-  whiteMercury: 'linear-gradient(180deg, #E5E7EB 0%, #FFFFFF 100%)',
-  whiteAlpha90: 'rgba(255, 255, 255, 0.9)',
+  // Dark Background Gradients
+  dark: {
+    bg: '#0a0e27',
+    bgSecondary: '#0f1535',
+    bgTertiary: '#151b3d',
+    surface: '#1a2142',
+    surfaceHover: '#1f2749',
+    border: 'rgba(100, 116, 139, 0.2)',
+    borderLight: 'rgba(148, 163, 184, 0.15)',
+  },
 
-  // Semantic Colors
+  // Glassmorphism colors
+  glass: {
+    background: 'rgba(26, 33, 66, 0.7)',
+    border: 'rgba(148, 163, 184, 0.15)',
+    highlight: 'rgba(59, 130, 246, 0.1)',
+  },
+
+  // Gradient definitions
+  gradients: {
+    primary: 'linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%)',
+    emerald: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+    silver: 'linear-gradient(135deg, #64748b 0%, #475569 100%)',
+    blueEmerald: 'linear-gradient(135deg, #3b82f6 0%, #10b981 100%)',
+    darkGlow: 'linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%)',
+    cardHover: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%)',
+  },
+
+  // Semantic Colors - Dark Theme Adjusted
   success: {
-    50: '#f0fdf4',
-    500: '#22c55e',
-    700: '#15803d',
+    50: '#ecfdf5',
+    500: '#10b981',
+    600: '#059669',
+    700: '#047857',
   },
   warning: {
     50: '#fffbeb',
     500: '#f59e0b',
+    600: '#d97706',
     700: '#b45309',
   },
   error: {
     50: '#fef2f2',
     500: '#ef4444',
+    600: '#dc2626',
     700: '#b91c1c',
   },
   info: {
     50: '#eff6ff',
     500: '#3b82f6',
+    600: '#2563eb',
     700: '#1d4ed8',
   },
 
@@ -86,8 +113,9 @@ export const colors = {
 
 export const typography = {
   fontFamily: {
-    primary: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-    mono: "'Fira Code', 'Courier New', monospace",
+    primary: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif",
+    heading: "'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+    mono: "'SF Mono', 'Fira Code', 'Courier New', monospace",
   },
   fontSize: {
     xs: '0.75rem',      // 12px
@@ -162,15 +190,21 @@ export const breakpoints = {
 
 export const shadows = {
   none: 'none',
-  sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-  base: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-  md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-  lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-  xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-  '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-  inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-  // Figma Portfolio Shadow
-  portfolio: '0px 4px 6px -4px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1)',
+  sm: '0 2px 4px rgba(0, 0, 0, 0.4)',
+  base: '0 4px 8px rgba(0, 0, 0, 0.5)',
+  md: '0 8px 16px rgba(0, 0, 0, 0.6)',
+  lg: '0 12px 24px rgba(0, 0, 0, 0.7)',
+  xl: '0 20px 40px rgba(0, 0, 0, 0.8)',
+  '2xl': '0 32px 64px rgba(0, 0, 0, 0.9)',
+  inner: 'inset 0 2px 8px rgba(0, 0, 0, 0.5)',
+  // Premium dark theme shadows with color accents
+  glow: {
+    blue: '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3)',
+    emerald: '0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(16, 185, 129, 0.3)',
+    silver: '0 4px 24px rgba(148, 163, 184, 0.2)',
+  },
+  card: '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 1px rgba(59, 130, 246, 0.1)',
+  cardHover: '0 12px 48px rgba(59, 130, 246, 0.3), 0 0 80px rgba(16, 185, 129, 0.15)',
 } as const;
 
 export const borderRadius = {
@@ -213,18 +247,39 @@ export const transitions = {
 } as const;
 
 /**
- * 특수 효과 (Figma 포트폴리오 디자인)
+ * Premium effects for dark theme with glassmorphism
  */
 export const effects = {
   backdropBlur: {
     sm: 'blur(8px)',
     md: 'blur(16px)',
     lg: 'blur(24px)',
+    xl: 'blur(40px)',
   },
   glassmorphism: {
-    background: 'rgba(255, 255, 255, 0.9)',
-    backdropFilter: 'blur(16px)',
-    border: '1px solid rgba(255, 255, 255, 0.18)',
+    base: {
+      background: 'rgba(26, 33, 66, 0.7)',
+      backdropFilter: 'blur(16px) saturate(180%)',
+      border: '1px solid rgba(148, 163, 184, 0.15)',
+      boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
+    },
+    subtle: {
+      background: 'rgba(26, 33, 66, 0.5)',
+      backdropFilter: 'blur(12px) saturate(150%)',
+      border: '1px solid rgba(148, 163, 184, 0.1)',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.4)',
+    },
+    strong: {
+      background: 'rgba(26, 33, 66, 0.85)',
+      backdropFilter: 'blur(20px) saturate(200%)',
+      border: '1px solid rgba(148, 163, 184, 0.2)',
+      boxShadow: '0 12px 48px rgba(0, 0, 0, 0.8)',
+    },
+  },
+  glow: {
+    primary: 'drop-shadow(0 0 8px rgba(59, 130, 246, 0.6))',
+    emerald: 'drop-shadow(0 0 8px rgba(16, 185, 129, 0.6))',
+    soft: 'drop-shadow(0 0 12px rgba(148, 163, 184, 0.3))',
   },
 } as const;
 

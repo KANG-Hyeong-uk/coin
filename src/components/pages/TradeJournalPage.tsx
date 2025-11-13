@@ -1,25 +1,25 @@
 /**
- * ChartPage
- * 차트 보기 전용 페이지
+ * TradeJournalPage
+ * 매매 일지 전용 페이지
  */
 
 import React from 'react';
 import styled from 'styled-components';
 import { Navigation } from '../organisms/Navigation';
-import { CandlestickChart } from '../organisms/CandlestickChart';
+import TradeJournalSection from '../organisms/TradeJournalSection';
 import { Footer } from '../organisms/Footer';
 
-const ChartPage: React.FC = () => {
+const TradeJournalPage: React.FC = () => {
   return (
     <PageContainer>
       <Navigation />
-      <CandlestickChart />
+      <TradeJournalSection />
       <Footer />
     </PageContainer>
   );
 };
 
-export default ChartPage;
+export default TradeJournalPage;
 
 // Styled Components
 const PageContainer = styled.div`

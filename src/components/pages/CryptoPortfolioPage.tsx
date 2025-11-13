@@ -27,5 +27,5 @@ export default CryptoPortfolioPage;
 const PageContainer = styled.div`
   width: 100%;
   min-height: 100vh;
-  background: #e9e9e9;
+  background: transparent;
 `;

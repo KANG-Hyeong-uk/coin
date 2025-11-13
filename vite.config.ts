@@ -23,4 +23,26 @@ export default defineConfig({
       '@assets': path.resolve(__dirname, './src/assets'),
     },
   },
+  server: {
+    proxy: {
+      // 업비트 API 프록시 설정 (CORS 우회)
+      '/api/upbit': {
+        target: 'https://api.upbit.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/upbit/, ''),
+        secure: true,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('proxy error', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, _res) => {
+            console.log('Sending Request to the Target:', req.method, req.url);
+          });
+          proxy.on('proxyRes', (proxyRes, req, _res) => {
+            console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+          });
+        },
+      },
+    },
+  },
 })

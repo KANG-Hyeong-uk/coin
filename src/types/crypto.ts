@@ -43,3 +43,28 @@ export interface CoinDetailData extends CoinData {
     [key in TimeFrame]: ChartDataPoint[];
   };
 }
+
+/**
+ * 실제 역사적 투자 수익률 데이터
+ */
+export interface HistoricalInvestment {
+  baseYear: number;
+  basePriceKRW: number;
+  currentPriceKRW: number;
+  investmentAmount: number; // 초기 투자금 (원)
+  currentValue: number; // 현재 가치 (원)
+  profitRate: number; // 수익률 (%)
+  yearlyROI: YearlyROI[]; // 연도별 수익률
+  isWarning?: boolean; // 경고 표시 (LUNA 같은 폭락 사례)
+  warningMessage?: string;
+}
+
+export interface YearlyROI {
+  year: number;
+  roi: number; // 수익률 (%)
+  value: number; // 그 시점의 가치 (원)
+}
+
+export interface CoinHistoricalData extends CoinData {
+  historical: HistoricalInvestment;
+}

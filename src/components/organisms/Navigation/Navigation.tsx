@@ -27,10 +27,10 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
 
   const menuItems = [
     { label: 'Home', path: '/', type: 'route' },
-    { label: 'Past ROI', path: '#roi', type: 'scroll' },
-    { label: '매매 일지', path: '#journal', type: 'scroll' },
-    { label: '시뮬레이터', path: '#simulator', type: 'scroll' },
+    { label: '매매 일지', path: '/trade-journal', type: 'route' },
+    { label: '시뮬레이터', path: '/simulator', type: 'route' },
     { label: '차트 보기', path: '/charts', type: 'route' },
+    { label: '내 자산', path: '/my-assets', type: 'route' },
   ];
 
   const handleScrollToSection = (hash: string) => {
@@ -95,14 +95,20 @@ const NavContainer = styled.nav<{ $isScrolled: boolean }>`
   width: 100%;
   z-index: 100;
   background: ${(props) =>
-    props.$isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 0.9)'};
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid
-    ${(props) => (props.$isScrolled ? 'rgba(0, 0, 0, 0.1)' : 'transparent')};
-  transition: all 0.3s ease;
+    props.$isScrolled
+      ? 'rgba(26, 33, 66, 0.85)'
+      : 'rgba(26, 33, 66, 0.7)'};
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid ${(props) =>
+    props.$isScrolled
+      ? 'rgba(148, 163, 184, 0.2)'
+      : 'rgba(148, 163, 184, 0.1)'};
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: ${(props) =>
-    props.$isScrolled ? '0 2px 12px rgba(0, 0, 0, 0.08)' : 'none'};
+    props.$isScrolled
+      ? '0 8px 32px rgba(0, 0, 0, 0.6), 0 0 1px rgba(59, 130, 246, 0.1)'
+      : '0 4px 16px rgba(0, 0, 0, 0.3)'};
 `;
 
 const NavContent = styled.div`
@@ -133,15 +139,20 @@ const Logo = styled.div`
 const LogoIcon = styled.span`
   font-size: 2rem;
   font-weight: 700;
-  color: #627eea;
-  text-shadow: 0 2px 4px rgba(98, 126, 234, 0.2);
+  background: linear-gradient(135deg, #3b82f6 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.5));
 `;
 
 const LogoText = styled.span`
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1a1a1a;
-  letter-spacing: -0.5px;
+  font-family: 'Poppins', sans-serif;
+  color: #f8fafc;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 640px) {
     display: none;
@@ -170,31 +181,39 @@ const MenuItem = styled.li`
 `;
 
 const MenuLink = styled.a`
-  color: #4a4a4a;
+  color: #cbd5e1;
   text-decoration: none;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9375rem;
   padding: 0.5rem 0;
   position: relative;
-  transition: color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.01em;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 0;
     height: 2px;
-    background: #627eea;
-    transition: width 0.3s ease;
+    background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
   }
 
   &:hover {
-    color: #627eea;
+    color: #f8fafc;
+    transform: translateY(-1px);
 
     &::after {
       width: 100%;
     }
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   @media (max-width: 640px) {

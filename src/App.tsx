@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CryptoPortfolioPage, ChartPage } from './components/pages';
+import { CryptoPortfolioPage, ChartPage, SimulatorPage, TradeJournalPage, MyAssetsPage } from './components/pages';
 
 function App() {
   return (
@@ -12,6 +12,9 @@ function App() {
       <Routes>
         <Route path="/" element={<CryptoPortfolioPage />} />
         <Route path="/charts" element={<ChartPage />} />
+        <Route path="/simulator" element={<SimulatorPage />} />
+        <Route path="/trade-journal" element={<TradeJournalPage />} />
+        <Route path="/my-assets" element={<MyAssetsPage />} />
       </Routes>
     </Router>
   );

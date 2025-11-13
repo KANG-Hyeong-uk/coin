@@ -7,25 +7,47 @@
 @tailwind utilities;
 
 /**
- * CSS 변수로 디자인 토큰 정의
- * CSS Modules에서 사용 가능
+ * Google Fonts - Poppins & Inter
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/**
+ * Premium Dark Theme Design Tokens
  */
 :root {
-  /* Primary Colors */
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
+  /* Dark Theme Colors */
+  --color-dark-bg: #0a0e27;
+  --color-dark-bg-secondary: #0f1535;
+  --color-dark-surface: #1a2142;
+  --color-dark-surface-hover: #1f2749;
+
+  /* Primary Blue Spectrum */
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+
+  /* Emerald Accent */
+  --color-emerald-400: #34d399;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+
+  /* Silver/Neutral */
+  --color-silver-200: #e2e8f0;
+  --color-silver-300: #cbd5e1;
+  --color-silver-400: #94a3b8;
+  --color-silver-500: #64748b;
+  --color-silver-600: #475569;
 
   /* Typography */
-  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-mono: 'Fira Code', 'Courier New', monospace;
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+  --font-family-heading: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+
+  /* Glassmorphism */
+  --glass-background: rgba(26, 33, 66, 0.7);
+  --glass-border: rgba(148, 163, 184, 0.15);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 
   /* Spacing */
   --spacing-1: 0.25rem;
@@ -37,8 +59,8 @@
 
   /* Transitions */
   --transition-fast: 150ms;
-  --transition-base: 250ms;
-  --transition-slow: 350ms;
+  --transition-base: 300ms;
+  --transition-slow: 500ms;
 }
 
 /**
@@ -60,14 +82,23 @@
 
   body {
     font-family: var(--font-family-primary);
-    line-height: 1.5;
-    color: #1f2937;
-    background-color: #ffffff;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: #0a0e27;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(100, 116, 139, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    line-height: 1.25;
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #f8fafc;
   }
 
   a {

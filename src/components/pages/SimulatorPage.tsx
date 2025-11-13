@@ -1,25 +1,25 @@
 /**
- * ChartPage
- * 차트 보기 전용 페이지
+ * SimulatorPage
+ * 암호화폐 백테스팅 시뮬레이터 페이지
  */
 
 import React from 'react';
 import styled from 'styled-components';
 import { Navigation } from '../organisms/Navigation';
-import { CandlestickChart } from '../organisms/CandlestickChart';
+import { SimulatorSection } from '../organisms/SimulatorSection';
 import { Footer } from '../organisms/Footer';
 
-const ChartPage: React.FC = () => {
+const SimulatorPage: React.FC = () => {
   return (
     <PageContainer>
       <Navigation />
-      <CandlestickChart />
+      <SimulatorSection />
       <Footer />
     </PageContainer>
   );
 };
 
-export default ChartPage;
+export default SimulatorPage;
 
 // Styled Components
 const PageContainer = styled.div`

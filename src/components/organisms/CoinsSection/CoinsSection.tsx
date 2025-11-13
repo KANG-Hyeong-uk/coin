@@ -7,21 +7,23 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { CoinCard } from '../../molecules/CoinCard';
-import { ROIModal } from '../ROIModal';
-import { MOCK_COINS, generateDetailedCoinData } from '../../../utils/mockData';
-import { CoinData, CoinDetailData } from '../../../types/crypto';
+import { HistoricalROIModal } from '../HistoricalROIModal';
+import { MOCK_COINS, HISTORICAL_DATA } from '../../../utils/mockData';
+import { CoinData, HistoricalInvestment } from '../../../types/crypto';
 
 interface CoinsSectionProps {
   className?: string;
 }
 
 const CoinsSection: React.FC<CoinsSectionProps> = ({ className }) => {
-  const [selectedCoin, setSelectedCoin] = useState<CoinDetailData | null>(null);
+  const [selectedCoin, setSelectedCoin] = useState<CoinData | null>(null);
+  const [selectedHistoricalData, setSelectedHistoricalData] = useState<HistoricalInvestment | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCoinClick = (coin: CoinData) => {
-    const detailedData = generateDetailedCoinData(coin);
-    setSelectedCoin(detailedData);
+    const historicalData = HISTORICAL_DATA[coin.id];
+    setSelectedCoin(coin);
+    setSelectedHistoricalData(historicalData);
     setIsModalOpen(true);
   };
 
@@ -30,6 +32,7 @@ const CoinsSection: React.FC<CoinsSectionProps> = ({ className }) => {
     // 모달 닫히는 애니메이션이 끝난 후 데이터 초기화
     setTimeout(() => {
       setSelectedCoin(null);
+      setSelectedHistoricalData(null);
     }, 300);
   };
 
@@ -60,10 +63,11 @@ const CoinsSection: React.FC<CoinsSectionProps> = ({ className }) => {
         </CoinsGrid>
       </SectionContainer>
 
-      <ROIModal
+      <HistoricalROIModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         coinData={selectedCoin}
+        historicalData={selectedHistoricalData}
       />
     </>
   );
@@ -74,7 +78,7 @@ export default CoinsSection;
 // Styled Components
 const SectionContainer = styled.section`
   padding: 4rem 2rem;
-  background: #e9e9e9;
+  background: transparent;
 
   @media (max-width: 768px) {
     padding: 3rem 1rem;
@@ -82,19 +86,25 @@ const SectionContainer = styled.section`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
-  color: #1a1a1a;
+  background: linear-gradient(135deg, #f8fafc 0%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin: 0 0 3rem 0;
+  letter-spacing: -0.03em;
+  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.3));
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 2rem;
   }
 
   @media (max-width: 480px) {
-    font-size: 1.75rem;
+    font-size: 1.875rem;
   }
 `;
 
